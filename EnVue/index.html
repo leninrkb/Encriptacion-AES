@@ -36,10 +36,10 @@
         </div>
     </header>
 
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        <div class="col">
+    <div class="row row-cols-1 row-cols-md-4 mb-4 text-center">
+        <div id="cifrado_texto" class="col">
             <div style="padding: 20px;">
-                <div id="cifrado-texto" class="card" style="width: 20rem;">
+                <div class="card" style="width: 20rem;">
                     <img src="img/w345.png" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">Cifrado de un texto</h5>
@@ -56,7 +56,25 @@
                 </div>
             </div>
         </div>
-
+        <div id="decifrado_texto" class="col">
+            <div style="padding: 20px;">
+                <div class="card" style="width: 20rem;">
+                    <img src="img/w345.png" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Decifrado de un texto</h5>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="contrasena" aria-label="contrasena"
+                                aria-describedby="basic-addon2" v-model="contrasena">
+                            <input type="text" class="form-control" placeholder="texto a cifrar"
+                                aria-label="texto a cifrar" aria-describedby="basic-addon2" v-model="cifrado">
+                            <button type="button" class="btn btn-primary" v-on:click="decifrar()">decifrar</button>
+                        </div>
+                        <p class="card-text">Decifrado:</p>
+                        <p class="card-text">{{decifrado}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col">
             <div style="padding: 20px;">
                 <div class="card" style="width: 20rem;">
@@ -77,7 +95,7 @@
         </div>
     </div>
 
-    <script src="js/cifrado.js" ></script>
+    <script src="js/cifrado.js"></script>
 </body>
 
 </html>
