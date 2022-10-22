@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Encriptacion AES</title>
+</head>
+
+<body>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <img src="img/data-encryption.png" alt="3px">
+                    </svg> -->
+                    <img src="img/data-encryption.png" alt="3px">
+                </a>
+
+                <div style="margin-left:20px;">
+                    Encriptacion de datos con AES
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+            <div style="padding: 20px;">
+                <div id="cifrado-texto" class="card" style="width: 20rem;">
+                    <img src="img/w345.png" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Cifrado de un texto</h5>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="contrasena" aria-label="contrasena"
+                                aria-describedby="basic-addon2" v-model="contrasena">
+                            <input type="text" class="form-control" placeholder="texto a cifrar"
+                                aria-label="texto a cifrar" aria-describedby="basic-addon2" v-model="texto_cifrar">
+                            <button type="button" class="btn btn-primary" v-on:click="cifrar()">cifrar</button>
+                        </div>
+                        <p class="card-text">Cifrado:</p>
+                        <p class="card-text">{{cifrado}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div style="padding: 20px;">
+                <div class="card" style="width: 20rem;">
+                    <img src="img/mk4.jpg" class="card-img-top" alt="">
+                    <div id="cifrado-archivo" class="card-body">
+                        <h5 class="card-title">Cifrado de un archivo</h5>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="contrasena" aria-label="contrasena"
+                                aria-describedby="basic-addon2">
+                            <input type="file" class="form-control" placeholder="texto a cifrar"
+                                aria-label="texto a cifrar" aria-describedby="basic-addon2">
+                            <button type="button" class="btn btn-primary">cifrar</button>
+                        </div>
+                        <p class="card-text">cifrado:</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cifrado.js" ></script>
+</body>
+
+</html>
