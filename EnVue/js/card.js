@@ -1,3 +1,0 @@
-Vue.component('card',{
-    
-})
