@@ -68,11 +68,13 @@
                                 aria-describedby="basic-addon2" v-model="contrasena">
                             <input type="text" class="form-control" placeholder="texto a cifrar"
                                 aria-label="texto a cifrar" aria-describedby="basic-addon2" v-model="cifrado">
-                            <button type="button" class="btn btn-primary" v-on:click="descifrar()">descifrar</button>
                         </div>
-                        <p class="card-text">descifrado:</p>
-                        <p class="card-text">{{descifrado}}</p>
                     </div>
+                    <button style="margin-left: 20px; margin-right:20px" type="button" class="btn btn-primary"
+                        v-on:click="descifrar()">descifrar</button>
+                    <br>
+                    <p class="card-text">descifrado:</p>
+                    <p class="card-text">{{descifrado}}</p>
                 </div>
             </div>
         </div>
@@ -82,16 +84,18 @@
                     <img src="img/mk4.jpg" class="card-img-top" alt="">
                     <div id="cifrado-archivo" class="card-body">
                         <h5 class="card-title">Cifrado de un archivo</h5>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-2">
                             <input type="password" class="form-control" placeholder="contrasena" aria-label="contrasena"
                                 aria-describedby="basic-addon2" v-model="contrasena">
-                            <input type="file" class="form-control" placeholder="archivo a cifrar"
-                                aria-label="archivo a cifrar" aria-describedby="basic-addon2" @change="cargarArchivo">
-                            <button type="button" class="btn btn-primary" v-on:click="cifrar()">cifrar</button>
                         </div>
-                        <p class="card-text">cifrado:</p>
-                        {{cifrado}}
+                        <input type="file" class="form-control" placeholder="archivo a cifrar"
+                            aria-label="archivo a cifrar" aria-describedby="basic-addon2" @change="cargarArchivo">
                     </div>
+                    <button style="margin-left: 20px; margin-right:20px" type="button" class="btn btn-primary"
+                        v-on:click="cifrar()">cifrar</button>
+                    <br>
+                    <p class="card-text">cifrado:</p>
+                    <p class="card-text">{{cifrado}}</p>
                 </div>
             </div>
         </div>
@@ -106,13 +110,14 @@
                                 aria-describedby="basic-addon2" v-model="contrasena">
                             <input type="text" class="form-control" placeholder="texto a cifrar"
                                 aria-label="texto a cifrar" aria-describedby="basic-addon2" v-model="cifrado">
-                            <button type="button" class="btn btn-primary" v-on:click="descifrar()">descifrar</button>
                         </div>
-                        <p class="card-text">descifrado:</p>
-                        {{descifrado}}
-                        <br>
-                        <a :href="downloadableUrl" download="awrchivo_descifrado">descargar archivo descifrado</a>
                     </div>
+                    <button style="margin-left: 20px; margin-right:20px" type="button" class="btn btn-primary"
+                        v-on:click="descifrar()">descifrar</button>
+                    <br>
+                    <p class="card-text">{{mensaje}}</p>
+                    <a :href="downloadableUrl" download="archivo_descifrado">descargar archivo</a>
+                    <br>
                 </div>
             </div>
         </div>

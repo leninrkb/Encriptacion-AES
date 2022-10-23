@@ -75,6 +75,7 @@ const descifrando_archivo = new Vue({
         descifrado: null,
         downloadableUrl: '',
         type: '',
+        mensaje:'',
     },
     methods: {
         descifrar() {
@@ -83,6 +84,7 @@ const descifrando_archivo = new Vue({
             this.type = this.descifrado[0].toString();
             var blob = new Blob([decodeBase64(this.descifrado[1].toString())], { type: this.type });
             this.downloadableUrl = URL.createObjectURL(blob);
+            this.mensaje = 'listo';
         }
     }
 })
