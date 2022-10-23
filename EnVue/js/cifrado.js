@@ -73,16 +73,16 @@ const descifrando_archivo = new Vue({
         contrasena: '',
         cifrado: '',
         descifrado: null,
-        downloadableUrl:'',
+        downloadableUrl: '',
+        type: '',
     },
     methods: {
         descifrar() {
             this.cifrado = decodeBase64(this.cifrado);
             this.descifrado = JSON.parse(CryptoJS.AES.decrypt(this.cifrado, this.contrasena).toString(CryptoJS.enc.Utf8)).split(',');
-            var blob = new Blob([decodeBase64(this.descifrado[1].toString())], { type: this.descifrado[0].toString() });
+            this.type = this.descifrado[0].toString();
+            var blob = new Blob([decodeBase64(this.descifrado[1].toString())], { type: this.type });
             this.downloadableUrl = URL.createObjectURL(blob);
-            console.log(blob);
-
         }
     }
 })

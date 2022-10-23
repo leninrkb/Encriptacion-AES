@@ -48,11 +48,12 @@
                                 aria-describedby="basic-addon2" v-model="contrasena">
                             <input type="text" class="form-control" placeholder="texto a cifrar"
                                 aria-label="texto a cifrar" aria-describedby="basic-addon2" v-model="texto_cifrar">
-                            <button type="button" class="btn btn-primary" v-on:click="cifrar()">cifrar</button>
                         </div>
-                        <p class="card-text">Cifrado:</p>
-                        <p class="card-text">{{cifrado}}</p>
                     </div>
+                    <button style="margin-left: 20px; margin-right:20px" type="button" class="btn btn-primary"
+                        v-on:click="cifrar()">cifrar</button><br>
+                    <p class="card-text">cifrado:</p>
+                    <p class="card-text">{{cifrado}}</p>
                 </div>
             </div>
         </div>
@@ -88,7 +89,7 @@
                                 aria-label="archivo a cifrar" aria-describedby="basic-addon2" @change="cargarArchivo">
                             <button type="button" class="btn btn-primary" v-on:click="cifrar()">cifrar</button>
                         </div>
-                        <p class="card-text">Cifrado:</p>
+                        <p class="card-text">cifrado:</p>
                         {{cifrado}}
                     </div>
                 </div>
@@ -109,7 +110,8 @@
                         </div>
                         <p class="card-text">descifrado:</p>
                         {{descifrado}}
-                        <a :href="downloadableUrl" download="file.txt">descargar archivo descifrado</a>
+                        <br>
+                        <a :href="downloadableUrl" download="awrchivo_descifrado">descargar archivo descifrado</a>
                     </div>
                 </div>
             </div>
