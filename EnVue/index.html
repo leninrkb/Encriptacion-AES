@@ -79,7 +79,7 @@
             </div>
         </div>
         <div id="cifrado_archivo" class="col">
-            <div >
+            <div>
                 <div class="card" style="width: 20rem;">
                     <img src="img/encryption.jpeg" class="card-img-top" alt="">
                     <div id="cifrado-archivo" class="card-body">
@@ -93,6 +93,8 @@
                     </div>
                     <button style="margin-left: 20px; margin-right:20px" type="button" class="btn btn-primary"
                         v-on:click="cifrar()">cifrar</button>
+                    <br>
+                    <a :href="downloadableUrl" download="archivo_cifrado">descargar archivo</a>
                     <br>
                     <p class="card-text">cifrado:</p>
                     <p class="card-text">{{cifrado}}</p>
@@ -110,12 +112,16 @@
                                 aria-describedby="basic-addon2" v-model="contrasena">
                             <input type="text" class="form-control" placeholder="texto a cifrar"
                                 aria-label="texto a cifrar" aria-describedby="basic-addon2" v-model="cifrado">
+
                         </div>
+                        <input type="file" class="form-control" placeholder="archivo a cifrar"
+                            aria-label="archivo a cifrar" aria-describedby="basic-addon2" @change="cargarArchivo">
                     </div>
                     <button style="margin-left: 20px; margin-right:20px" type="button" class="btn btn-primary"
                         v-on:click="descifrar()">descifrar</button>
                     <br>
                     <a :href="downloadableUrl" download="archivo_descifrado">descargar archivo</a>
+                    <br>
                     <p class="card-text">{{mensaje}}</p>
                     <br>
                 </div>
