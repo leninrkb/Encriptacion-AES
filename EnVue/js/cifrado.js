@@ -65,10 +65,15 @@ const cifrando_archivo = new Vue({
         cifrar() {
             this.cifrado = CryptoJS.AES.encrypt(JSON.stringify(this.archivo), this.contrasena).toString();
             this.cifrado = encodeBase64(this.cifrado);
-            var datos = this.archivo.split(',');
-            var tipo = datos[0];
-            var blob = new Blob([this.cifrado], { type: tipo });
+            const datos = this.archivo.split(',');
+            const tipo = datos[0];
+            const blob = new Blob([this.cifrado], { type: tipo });
             this.downloadableUrl = URL.createObjectURL(blob);
+            //limpio entradas
+            this.contrasena = '';
+            this.archivo = null;
+            var $elemento = document.querySelector("#archivo");
+            $elemento.value = "";
         }
     }
 })
@@ -79,7 +84,6 @@ const descifrando_archivo = new Vue({
         cifrado: '',
         descifrado: null,
         downloadableUrl: '',
-        tipo: '',
         mensaje: '',
         archivo: null,
     },
@@ -89,32 +93,23 @@ const descifrando_archivo = new Vue({
             const reader = new FileReader();
             reader.readAsDataURL(this.archivo);
             reader.onload = () => {
-                const datos = reader.result;
-                this.archivo = datos;
+                const datos = reader.result.split(',');
+                this.cifrado = decodeBase64(datos[1]);
             }
         },
         descifrar() {
-            if (this.archivo == null) {
-                this.cifrado = decodeBase64(this.cifrado);
-                this.descifrado = JSON.parse(CryptoJS.AES.decrypt(this.cifrado, this.contrasena).toString(CryptoJS.enc.Utf8)).split(',');
-                this.tipo = this.descifrado[0].toString();
-                var blob = new Blob([decodeBase64(this.descifrado[1].toString())], { type: this.tipo });
-                this.downloadableUrl = URL.createObjectURL(blob);
-                this.mensaje = 'listo';
-            } else {
-                var datos = this.archivo.split(',');
-                var info = datos[1];
-
-                this.cifra = decodeBase64(info);
-                this.descifrado = JSON.parse(CryptoJS.AES.decrypt(this.cifrado, this.contrasena).toString(CryptoJS.enc.Utf8)).split(',');
-                this.tipo = this.descifrado[0].toString();
-                var blob = new Blob([decodeBase64(this.descifrado[1].toString())], { type: this.tipo });
-                this.downloadableUrl = URL.createObjectURL(blob);
-                this.mensaje = 'listo';
-            }
-
-
-
+            this.cifrado = decodeBase64(this.cifrado);
+            this.descifrado = JSON.parse(CryptoJS.AES.decrypt(this.cifrado, this.contrasena).toString(CryptoJS.enc.Utf8)).split(',');
+            const tipo = this.descifrado[0].toString();
+            const info = this.descifrado[1].toString();
+            const blob = new Blob([decodeBase64(info)], { type: tipo });
+            this.downloadableUrl = URL.createObjectURL(blob);
+            this.mensaje = 'listo';
+            //limpio entradas
+            this.cifrado = null;
+            this.archivo = null;
+            const $elemento = document.querySelector("#archivo");
+            $elemento.value = "";
         }
     }
 })

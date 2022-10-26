@@ -60,7 +60,7 @@
         <div id="descifrado_texto" class="col">
             <div>
                 <div class="card" style="width: 20rem;">
-                    <img src="img/encryption.jpeg" class="card-img-top" alt="">
+                    <img src="img/decifrado.webp" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">Descifrado de un texto</h5>
                         <div class="input-group mb-3">
@@ -88,7 +88,7 @@
                             <input type="password" class="form-control" placeholder="contrasena" aria-label="contrasena"
                                 aria-describedby="basic-addon2" v-model="contrasena">
                         </div>
-                        <input type="file" class="form-control" placeholder="archivo a cifrar"
+                        <input id="archivo" type="file" class="form-control" placeholder="archivo a cifrar"
                             aria-label="archivo a cifrar" aria-describedby="basic-addon2" @change="cargarArchivo">
                     </div>
                     <button style="margin-left: 20px; margin-right:20px" type="button" class="btn btn-primary"
@@ -104,7 +104,7 @@
         <div id="descifrado_archivo" class="col">
             <div>
                 <div class="card" style="width: 20rem;">
-                    <img src="img/encryption.jpeg" class="card-img-top" alt="">
+                    <img src="img/decifrado.webp" class="card-img-top" alt="">
                     <div id="cifrado-archivo" class="card-body">
                         <h5 class="card-title">Descifrado de un archivo</h5>
                         <div class="input-group mb-3">
@@ -114,7 +114,7 @@
                                 aria-label="texto a cifrar" aria-describedby="basic-addon2" v-model="cifrado">
 
                         </div>
-                        <input type="file" class="form-control" placeholder="archivo a cifrar"
+                        <input id="archivo" type="file" class="form-control" placeholder="archivo a cifrar"
                             aria-label="archivo a cifrar" aria-describedby="basic-addon2" @change="cargarArchivo">
                     </div>
                     <button style="margin-left: 20px; margin-right:20px" type="button" class="btn btn-primary"
